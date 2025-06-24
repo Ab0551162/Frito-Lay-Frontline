@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frito-Lay Frontline Hub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial Rounded MT Bold', sans-serif;
+      background: linear-gradient(to bottom right, #fff7e6, #ffe066);
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      background-color: #ffcc00;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      height: 80px;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-size: 2.5em;
+      color: #d62828;
+    }
+
+    .nav-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px 10px;
+      gap: 20px;
+    }
+
+    .nav-link {
+      background-color: #ff5733;
+      padding: 20px 30px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: white;
+      font-size: 1.2em;
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s;
+    }
+
+    .nav-link:hover {
+      background-color: #c70039;
+    }
+
+    #mascot {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    #joke-box {
+      position: fixed;
+      bottom: 100px;
+      left: 20px;
+      background: white;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      padding: 10px;
+      display: none;
+      width: 200px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    #spinner {
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 5px dashed #ff5733;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5em;
+      color: #d62828;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Frito-Lay_logo_2021.svg/320px-Frito-Lay_logo_2021.svg.png" alt="Frito-Lay Logo">
+    <h1>Frontline Worker Hub</h1>
+  </header>
+
+  <div class="nav-container">
+    <a href="#schedule" class="nav-link">📅 View Schedule</a>
+    <a href="#training" class="nav-link">🎓 Training Center</a>
+    <a href="#benefits" class="nav-link">💼 Benefits Info</a>
+    <a href="#employee" class="nav-link">🌟 Employee Spotlight</a>
+    <a href="#fun" class="nav-link">🎮 Fun & Games</a>
+    <a href="#feedback" class="nav-link">💬 Give Feedback</a>
+  </div>
+
+  <!-- Snack Spinner Game -->
+  <div id="spinner">Click to Spin!</div>
+
+  <!-- Chester Cheetah Mascot -->
+  <img id="mascot" src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/Chester_Cheetah.svg/120px-Chester_Cheetah.svg.png" alt="Chester Cheetah">
+  <div id="joke-box"></div>
+
+  <footer>
+    <p>&copy; 2025 Frito-Lay Inc. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const jokes = [
+      "You're dangerously cheesy!",
+      "Snack time is the best time.",
+      "Always follow the crunch!",
+      "Take a break – you earned it!",
+      "Your shift? As spicy as Flamin' Hot Cheetos!"
+    ];
+
+    document.getElementById('mascot').addEventListener('click', () => {
+      const jokeBox = document.getElementById('joke-box');
+      const joke = jokes[Math.floor(Math.random() * jokes.length)];
+      jokeBox.textContent = joke;
+      jokeBox.style.display = 'block';
+      setTimeout(() => jokeBox.style.display = 'none', 3000);
+    });
+
+    const rewards = [
+      "Snack break!",
+      "You won a high five!",
+      "You're the MVP today!",
+      "Free chips? Ask your manager!",
+      "Laughter is your prize!"
+    ];
+
+    document.getElementById('spinner').addEventListener('click', function() {
+      const result = rewards[Math.floor(Math.random() * rewards.length)];
+      this.textContent = result;
+      setTimeout(() => this.textContent = "Click to Spin!", 3000);
+    });
+  </script>
+</body>
+</html>
